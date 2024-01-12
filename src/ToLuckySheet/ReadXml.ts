@@ -1,6 +1,6 @@
-import {IuploadfileList, IattributeList, stringToNum} from "../ICommon";
-import {indexedColors}  from "../common/constant";
-import {LightenDarkenColor}  from "../common/method";
+import {IattributeList, IuploadfileList} from "../ICommon";
+import {indexedColors} from "../common/constant";
+import {LightenDarkenColor} from "../common/method";
 
 
 class xmloperation {
@@ -138,6 +138,9 @@ export class Element extends xmloperation {
     * @return Element group
     */
     getInnerElements(tag:string):Element[]{
+        // if (tag === 'c') {
+        //     debugger
+        // }
         let ret = this.getElementsByOneTag(tag,this.elementString);
         let elements:Element[] = [];
 
@@ -311,13 +314,13 @@ export function getlineStringAttr(frpr:Element, attr:string):string{
         else if(attr=="u"){
             let v = attrEle[0].attributeList.val;
             if(v=="double"){
-                value =  "2";
+                value =  "2";
             }
-            else if(v=="singleAccounting"){
-                value =  "3";
+            else if(v=="singleAccounting"){
+                value =  "3";
             }
-            else if(v=="doubleAccounting"){
-                value =  "4";
+            else if(v=="doubleAccounting"){
+                value =  "4";
             }
             else{
                 value = "1";

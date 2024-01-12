@@ -31,6 +31,9 @@ export class LuckySheetCelldata extends LuckySheetCelldataBase{
         let attrList = cell.attributeList;
         let r = attrList.r, s = attrList.s, t = attrList.t;
         let range = getcellrange(r);
+        // if (t == undefined) {
+        //     debugger
+        // }
 
         this.r = range.row[0];
         this.c = range.column[0];
@@ -102,6 +105,7 @@ export class LuckySheetCelldata extends LuckySheetCelldataBase{
 
                 applyProtection = attrList.applyProtection;
                 quotePrefix = attrList.quotePrefix;
+
 
                 if(applyNumberFormat!="0" && attrList.numFmtId!=null){
                     // if(attrList.numFmtId!="0"){
@@ -200,8 +204,11 @@ export class LuckySheetCelldata extends LuckySheetCelldataBase{
                 let numf = numfmts[parseInt(numFmtId)];
                 let cellFormat = new LuckySheetCellFormat();
                 cellFormat.fa = escapeCharacter(numf);
-                // console.log(numf, numFmtId, this.v);
-                cellFormat.t = t || 'd';
+
+                if (t === undefined) {
+                    console.log(numf, numFmtId, this.v, t);
+                }
+                cellFormat.t = t || 'g';
                 cellValue.ct = cellFormat;
             }
 
