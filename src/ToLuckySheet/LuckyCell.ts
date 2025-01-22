@@ -202,6 +202,7 @@ export class LuckySheetCelldata extends LuckySheetCelldataBase{
 
             if(numFmtId!=undefined){
                 let numf = numfmts[parseInt(numFmtId)];
+
                 let cellFormat = new LuckySheetCellFormat();
                 cellFormat.fa = escapeCharacter(numf);
 
